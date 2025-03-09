@@ -1,6 +1,6 @@
 import socket
 
-def verificar_cpf(host='127.0.0.1', port=8080):
+def cliente_tcp(host='127.0.0.1', port=8080):
     try:
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect((host, port))
@@ -22,4 +22,4 @@ def verificar_cpf(host='127.0.0.1', port=8080):
         print("\nConexão encerrada.")
 
 if __name__ == "__main__":
-    verificar_cpf()
+    cliente_tcp()

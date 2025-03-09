@@ -1,34 +1,13 @@
 import socket
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from validar_cpf import validar_cpf
 
-def validar_cpf(cpf):
-    cpf = ''.join(filter(str.isdigit, cpf))
-
-    if len(cpf) != 11:
-        return False
-    
-    if cpf == cpf[0] * 11:
-        return False
-    
-    # Primeiro digito
-    total = 0
-    for i in range(9):
-        total += int(cpf[i]) * (10 - i)
-    resto = total % 11
-    d1 = 0 if resto < 2 else 11 - resto
-
-    # Segundo digito
-    total = 0
-    for i in range(10):
-        total += int(cpf[i]) * (11 - i)
-    resto = total % 11
-    d2 = 0 if resto < 2 else 11 - resto
-
-    return cpf[-2:] == f"{d1}{d2}"
-
-def servidor(host='127.0.0.1', port=8080):
+def servidor_tcp(host='127.0.0.1', port=8080):
     try:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        print(f"Servidor conectado em {host} : {port}")
+        print(f"Servidor rodando em {host} : {port}")
         server_socket.bind((host, port))
         server_socket.listen()
         print("Aguardando conexões...")
@@ -58,4 +37,4 @@ def servidor(host='127.0.0.1', port=8080):
         print("\nServidor encerrado.")
 
 if __name__ == "__main__":
-    servidor()
+    servidor_tcp()
