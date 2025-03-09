@@ -69,3 +69,7 @@ python cliente_tcp.py
 
 - **Python 3.x**: Linguagem de programação utilizada para a implementação.
 - **Sockets TCP/UDP**: Usados para a comunicação entre cliente e servidor.
+
+## 📜 Licença
+
+Este projeto eestá licenciado sob a licença MIT. Para mais detalhes, consulte o arquivo [LICENSE](https://github.com/CaioXTSY/Validador-De-CPF/blob/main/LICENSE) no repositório.
